@@ -138,3 +138,10 @@ foreach (var x in l7)
     }
 }
 Console.WriteLine("-----");
+
+
+var l8 = from x in employees join y in depts on x.IdDepartement equals y.Id orderby y.Intitule select new {Employe = x,Departement = y};
+foreach (var x in l8)
+{
+    Console.WriteLine(string.Format("{0,-10}-->{1}" , x.Employe.Nom , x.Departement.Intitule));
+}
