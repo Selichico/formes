@@ -64,6 +64,13 @@ namespace formes //c'est un regroupement logic des fichier ( class objet ..)
         {
             return X == obj.X && Y == obj.Y;
         }
+
+        public static Ligne operator +(Point a, Point b)
+            {
+             return new Ligne {De = a, A=b        };
+
+}
+              
     }
 
 
@@ -92,8 +99,8 @@ namespace formes //c'est un regroupement logic des fichier ( class objet ..)
 
             return false;
         }
-        
-        
+
+
     }
 
     public class Carre : FormeGeometrique
@@ -108,8 +115,27 @@ namespace formes //c'est un regroupement logic des fichier ( class objet ..)
             set
             {
                 if (value >= 0)
-                   longeur  = value;
+                    longeur = value;
             }
+        }
+        public Point this[PositionPoint position]
+        {
+            get
+            {
+                switch (position)
+                {
+                    case PositionPoint.HautGauche:return new Point { X= origin.X, Y= origin.Y };
+                    case PositionPoint.HautDroite: return new  Point {X= origin.X + Longeur, Y= origin.Y };
+                    case PositionPoint.BasGauche: return new Point { X= origin.X,Y= origin.Y +Longeur };
+                    case PositionPoint.BasDroite: return new Point { X= origin.X+Longeur, Y= origin.Y+Longeur };
+                    default: throw new ArgumentOutOfRangeException(nameof(position));
+                }
+            }
+            set
+            {
+                throw new NotSupportedException("impossible de changer les points carré");
+            }
+
         }
         public override double Superficie()
         {

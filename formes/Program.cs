@@ -1,4 +1,5 @@
 ﻿using formes;
+using System.ComponentModel.Design.Serialization;
 
 Program2.main(null); 
 
@@ -48,3 +49,21 @@ Rectangle rr = fg as Rectangle;
 if (rr != null) { 
 Console.WriteLine(rr.Largeur);
 }
+
+Carre cc = new Carre { origin= new Point { X = 5, Y = 10 }, Longeur = 20  };
+
+Console.WriteLine(cc[PositionPoint.HautGauche]);
+
+
+Point pp = new Point { X = 5, Y = 10 };
+Point pp2 = new Point { Y = 30, X = 15 };  
+
+Ligne l1 = new Ligne();
+l1.De = pp;
+l1.A = pp2; 
+
+Ligne l2 = new Ligne();
+l2.De = pp;
+l2.A = pp2;
+bool test = l1.Equals(l2);
+Console.WriteLine("l1= l2 ?" + test);
