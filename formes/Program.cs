@@ -88,8 +88,8 @@ var depts = new List<Departement>
     new Departement {Id=3,Intitule="IT" },
 };
 
-var l1 = from x in employees where x.Salaire>5000 select x;
-
+//var l1 = from x in employees where x.Salaire>5000 select x;
+var l1 = employees.Where(x => x.Salaire > 5000).Select(x => x);
 foreach(var x in l1)
 {
     Console.WriteLine(x.Id);
@@ -97,41 +97,47 @@ foreach(var x in l1)
 Console.WriteLine("-----");
 
 
-var l2 = from x in employees where x.Marie && x.Sex=='m' select x;
-
+//var l2 = from x in employees where x.Marie && x.Sex=='m' select x;
+var l2 = employees.Where(x => x.Marie && x.Sex == 'm').Select(x => x);
 foreach (var x in l2)
 {
     Console.WriteLine(x.Id);
 }
 Console.WriteLine("-----");
 
-var l3 = from x in employees  select new { x.Id, x.Nom};
-
+//var l3 = from x in employees  select new { x.Id, x.Nom};
+var l3 = employees.Select(x => new { x.Id, x.Nom });
 foreach (var x in l3)
 {
     Console.WriteLine( x.Nom);
 }
 Console.WriteLine("-----");
 
-var l5 = from x in employees orderby x.Nom select x;
+//var l5 = from x in employees orderby x.Nom select x;
+var l5 = employees.OrderBy(x => x.Nom).Select(x => x);
 foreach (var x in l5)
 {
     Console.WriteLine(x.Nom);
 }
 Console.WriteLine("-----");
 
-var l6 = from x in employees orderby x.Salaire descending, x.Sex select x;
+//var l6 = from x in employees orderby x.Salaire descending, x.Sex select x;
+var l6 = employees.OrderByDescending(x=> x.Salaire).ThenBy(x => x.Sex).Select(x => x);
+
 foreach (var x in l6)
 {
     Console.WriteLine(x.Id +":"+ x.Nom + ":"+ x.Salaire +":" +x.Sex);
 }
 Console.WriteLine("-----");
 
-var l7 = from x in employees group x by x.IdDepartement into g select g; // ou faire comme ca 
+//var l7 = from x in employees group x by x.IdDepartement into g select g; // ou faire comme ca 
 //var l7 = from x in employees group x by x.IdDepartement into g select g select new {Departement = g.Key, Employe = g }
+var l7 = employees.GroupBy(x => x.IdDepartement).Select(g => g);
 foreach (var x in l7)
 {
-    Console.WriteLine("departement"+ x.Key);
+    //var dept = (from a in depts where a.Id == x.departement select a.intitule).ToArray()[0];
+    var dept = depts.Single(a => a.Id == x.Key);
+    Console.WriteLine("departement"+ dept.Intitule);
     foreach(var y in x)
     {
         Console.WriteLine("\t"+ y.Nom);
@@ -140,7 +146,11 @@ foreach (var x in l7)
 Console.WriteLine("-----");
 
 
-var l8 = from x in employees join y in depts on x.IdDepartement equals y.Id orderby y.Intitule select new {Employe = x,Departement = y};
+
+//var l8 = from x in employees join y in depts on x.IdDepartement equals y.Id orderby y.Intitule select new {Employe = x,Departement = y};
+
+var l8 = employees.Join(depts, x=> x.IdDepartement, y=> y.Id, (x,y) => new { Employe = x, Departement = y });
+
 foreach (var x in l8)
 {
     Console.WriteLine(string.Format("{0,-10}-->{1}" , x.Employe.Nom , x.Departement.Intitule));
