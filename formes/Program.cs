@@ -155,3 +155,19 @@ foreach (var x in l8)
 {
     Console.WriteLine(string.Format("{0,-10}-->{1}" , x.Employe.Nom , x.Departement.Intitule));
 }
+
+
+// la varieble l9 n'est pas excuter jusqua que on fait al=ppelle a elle sauf si on ajout .ToList
+var l9 = employees.Select(x => x.Sex).Distinct();
+{
+    Console.WriteLine(x);
+}
+Console.WriteLine("---------");
+
+///en SQL les fonction vertical ou les agrégat 
+
+Console.WriteLine("salaire MIn :" +employees.Min(x => x.Salaire));
+Console.WriteLine("salaire Max :" + employees.Max(x => x.Salaire));
+Console.WriteLine("salaire Moyen :" + employees.Average(x => x.Salaire));
+Console.WriteLine("salaire sum :" + employees.Sum(x => x.Salaire));
+
