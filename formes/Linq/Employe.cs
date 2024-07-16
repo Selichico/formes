@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace formes
+namespace formes.Linq
 {
     public class Employe
     {
-        public int Id {  get; set; } = 0;
+
+        public int Id { get; set; } = 0;
         public string Nom { get; set; } = string.Empty;
         public DateTime DateNaissance { get; set; } = DateTime.Now;
         public bool Marie { get; set; } = false;
@@ -19,6 +20,6 @@ namespace formes
     public class Departement
     {
         public int Id { get; set; } = 0;
-        public string Intitule { get; set; }    = string.Empty ;
+        public string Intitule { get; set; } = string.Empty;
     }
 }

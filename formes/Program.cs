@@ -68,7 +68,7 @@
 //bool test = l1.Equals(l2);
 //Console.WriteLine("l1= l2 ?" + test);
 
-using formes;
+using formes.Linq;
 
 var employees = new List<Employe>
 {
@@ -144,7 +144,11 @@ foreach (var x in l7)
     }
 }
 Console.WriteLine("-----");
-
+var l10 = employees.OrderByDescending(x => x.DateNaissance).Select(x => x);
+foreach (var x in l10)
+{
+    Console.WriteLine(x.DateNaissance);
+}
 
 
 //var l8 = from x in employees join y in depts on x.IdDepartement equals y.Id orderby y.Intitule select new {Employe = x,Departement = y};
@@ -159,7 +163,7 @@ foreach (var x in l8)
 
 // la varieble l9 n'est pas excuter jusqua que on fait al=ppelle a elle sauf si on ajout .ToList
 var l9 = employees.Select(x => x.Sex).Distinct();
-{
+foreach(var x in l9){
     Console.WriteLine(x);
 }
 Console.WriteLine("---------");
@@ -170,4 +174,7 @@ Console.WriteLine("salaire MIn :" +employees.Min(x => x.Salaire));
 Console.WriteLine("salaire Max :" + employees.Max(x => x.Salaire));
 Console.WriteLine("salaire Moyen :" + employees.Average(x => x.Salaire));
 Console.WriteLine("salaire sum :" + employees.Sum(x => x.Salaire));
+
+
+
 

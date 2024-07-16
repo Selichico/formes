@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+using formes.Forms;
+
+namespace formes.Forms.Carre
+{
+    public class Rectangle : FormeGeometrique
+    {
+
+
+        private int largeur;
+
+        public int Largeur
+        {
+            get
+            {
+                return largeur;
+            }
+            set
+            {
+                if (value >= 0)
+                    largeur = value;
+            }
+        }
+
+        public override double Superficie()
+        {
+            return Longeur * Largeur;
+        }
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
+    }
+}
