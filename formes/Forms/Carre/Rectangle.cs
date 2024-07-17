@@ -1,8 +1,22 @@
+<<<<<<< HEAD
 ﻿using System.Text.Json;
 
 namespace formes.Forms.Carre
 {
     public class Rectangle : Carre
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+using formes.Forms;
+
+namespace formes.Forms.Carre
+{
+    public class Rectangle : FormeGeometrique
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
     {
 
 
@@ -21,7 +35,10 @@ namespace formes.Forms.Carre
             }
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
         public override double Superficie()
         {
             return Longeur * Largeur;

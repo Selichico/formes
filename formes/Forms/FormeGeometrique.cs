@@ -38,18 +38,32 @@ namespace formes.Forms
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// cette methode va nous permetre de comparer deux objet par rapport a leur superficie  
         ///this : refere a l'objet courant 
         /// this dans cette methode refere au objet1 ( objet courant) ""object1.equals(object2)""  
         /// 
+=======
+        /// cette methode va nous permetre de comparer duex objet par rapport a leur superficie  
+        /// </summary>
+        /// 
+        ///                            this : refere a l'objet courant 
+        /// 
+        /// <returns></returns>
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
 
             if (obj is FormeGeometrique)
+<<<<<<< HEAD
             {
                 return this.Superficie() == (obj as FormeGeometrique).Superficie();
             }
+=======
+                return Superficie() == (obj as FormeGeometrique).Superficie();
+
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
             return false;
         }
 

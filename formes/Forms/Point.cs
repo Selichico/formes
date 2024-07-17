@@ -72,7 +72,10 @@ namespace formes.Forms //c'est un regroupement logic des fichier ( class objet .
         /// <summary>
         /// cette methode elle va cnvertir notre objet en json et le retourner dans une string 
         /// </summary>
+<<<<<<< HEAD
         /// il vas serialize les proprieté 
+=======
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
         /// <returns></returns>
         public override string ToString()
         {
@@ -83,6 +86,7 @@ namespace formes.Forms //c'est un regroupement logic des fichier ( class objet .
         ///  dans cette methode on est entrain de comparer deux objet par rapport a leur membre x et y 
         /// </summary>
         /// <returns>boolan </returns>
+<<<<<<< HEAD
         public override bool Equals(object? obj)
         {
             if (obj == null)
@@ -102,6 +106,13 @@ namespace formes.Forms //c'est un regroupement logic des fichier ( class objet .
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+=======
+        public bool Equals(Point obj)
+        {
+            return X == obj.X && Y == obj.Y;
+        }
+
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
         public static Ligne operator +(Point a, Point b)
         {
             return new Ligne { De = a, A = b };

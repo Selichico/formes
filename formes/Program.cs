@@ -25,6 +25,7 @@ p.Afficher();
 Point q = new Point { X = 30, Y = 10 };
 q.Afficher();
 
+<<<<<<< HEAD
 
 q.Deplacer(p);
 q.Afficher();
@@ -90,6 +91,9 @@ Console.WriteLine("l1= l2 ?" + test);
 
 
 #region partie Linq 
+=======
+using formes.Linq;
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
 
 var employees = new List<Employe>
 {
@@ -183,8 +187,12 @@ foreach (var x in l8)
 
 // la varieble l9 n'est pas excuter jusqua que on fait al=ppelle a elle sauf si on ajout .ToList
 var l9 = employees.Select(x => x.Sex).Distinct();
+<<<<<<< HEAD
 foreach (var x in l9)
 {
+=======
+foreach(var x in l9){
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
     Console.WriteLine(x);
 }
 Console.WriteLine("---------");
@@ -197,5 +205,9 @@ Console.WriteLine("salaire Moyen :" + employees.Average(x => x.Salaire));
 Console.WriteLine("salaire sum :" + employees.Sum(x => x.Salaire));
 
 
+<<<<<<< HEAD
 #endregion
+=======
+
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
 

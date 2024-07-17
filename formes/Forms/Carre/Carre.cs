@@ -18,6 +18,7 @@ namespace formes.Forms.Carre
                     longeur = value;
             }
         }
+<<<<<<< HEAD
 
         /// <summary>
         /// 
@@ -26,6 +27,8 @@ namespace formes.Forms.Carre
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="NotSupportedException"></exception>
+=======
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
         public Point this[PositionPoint position]
         {
             get
