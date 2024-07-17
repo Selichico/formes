@@ -1,4 +1,10 @@
-﻿namespace formes.Forms.Cercle
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace formes.Forms.Cercle
 {
     public class Sphere : Cercle
     {

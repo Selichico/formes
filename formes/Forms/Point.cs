@@ -42,6 +42,14 @@ namespace formes.Forms //c'est un regroupement logic des fichier ( class objet .
             }
         }
 
+        /// <summary>
+        /// ~point() c'est un distructeur il vas generer une methode en arrier plan Finalize pour lacher une dernier instruction 
+        /// avec la suprression d l objet 
+        /// </summary>
+        ~Point()
+        {
+            Console.WriteLine("point p suprimer ");
+        }
 
         /// <summary>
         ///   on affecte de nouvel valeur a au proprieté X et Y 
@@ -102,6 +110,11 @@ namespace formes.Forms //c'est un regroupement logic des fichier ( class objet .
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        public bool Equals(Point obj)
+        {
+            return X == obj.X && Y == obj.Y;
+        }
+
         public static Ligne operator +(Point a, Point b)
         {
             return new Ligne { De = a, A = b };

@@ -14,8 +14,8 @@ namespace formes.Forms.Carre
             }
             set
             {
-                if (value >= 0)
-                    longeur = value;
+                //if (value >= 0)
+                    longeur = Math.Abs(value);
             }
         }
 
@@ -26,6 +26,8 @@ namespace formes.Forms.Carre
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="NotSupportedException"></exception>
+
+
         public Point this[PositionPoint position]
         {
             get

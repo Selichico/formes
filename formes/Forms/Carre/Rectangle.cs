@@ -1,8 +1,15 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+using formes.Forms;
 
 namespace formes.Forms.Carre
 {
     public class Rectangle : Carre
+
     {
 
 
@@ -20,7 +27,6 @@ namespace formes.Forms.Carre
                     largeur = value;
             }
         }
-
 
         public override double Superficie()
         {
