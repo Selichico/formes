@@ -26,7 +26,11 @@ using System.ComponentModel.Design.Serialization;
 //Point q = new Point { X = 30, Y = 10 };
 //q.Afficher();
 
+<<<<<<< HEAD
 //<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
 
 //q.Deplacer(p);
 //q.Afficher();
@@ -276,7 +280,108 @@ StreamReader sr = new StreamReader(fichier);
 
 try
 {
+<<<<<<< HEAD
     while (sr.Peek() != -1)
+=======
+    Console.WriteLine(rr.Largeur);
+}
+
+Carre cc = new Carre { Origin = new Point { X = 5, Y = 10 }, Longeur = 20 };
+
+Console.WriteLine(cc[PositionPoint.HautGauche]);
+
+
+Point pp = new Point { X = 5, Y = 10 };
+Point pp2 = new Point { Y = 30, X = 15 };
+
+Ligne line = new Ligne();
+line.De = pp;
+line.A = pp2;
+
+Ligne line2 = new Ligne();
+line2.De = pp;
+line2.A = pp2;
+bool test = line.Equals(line2);
+Console.WriteLine("l1= l2 ?" + test);
+
+#endregion
+
+
+
+#region partie Linq 
+=======
+using formes.Linq;
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
+
+var employees = new List<Employe>
+{
+    new Employe { Id = 1, Nom= "Mohamed", DateNaissance = DateTime.Parse("1994/01/11"), Marie=true, Sex ='m',Salaire = 3333, IdDepartement =1 },
+    new Employe { Id = 2, Nom= "aymen", DateNaissance = DateTime.Parse("1955/09/19"), Marie=false, Sex ='m',Salaire = 6336, IdDepartement =2 },
+    new Employe { Id = 3, Nom= "Manel", DateNaissance = DateTime.Parse("1976/05/23"), Marie=true, Sex ='f',Salaire = 2332, IdDepartement =2 },
+    new Employe { Id = 4, Nom= "Asia", DateNaissance = DateTime.Parse("2000/11/25"), Marie=true, Sex ='f',Salaire = 4334, IdDepartement =3 },
+    new Employe { Id = 5, Nom= "Said", DateNaissance = DateTime.Parse("1991/09/30"), Marie=false, Sex ='m',Salaire = 5335, IdDepartement =3 },
+    new Employe { Id = 6, Nom= "Brahim", DateNaissance = DateTime.Parse("1988/12/31"), Marie=true, Sex ='m',Salaire = 1331, IdDepartement =2 },
+    new Employe { Id = 7, Nom= "Mohamed", DateNaissance = DateTime.Parse("2006/01/8"), Marie=false, Sex ='m',Salaire = 9339, IdDepartement =3 },
+
+};
+var depts = new List<Departement>
+{
+     new Departement {Id=1,Intitule="RH" },
+    new Departement {Id=2,Intitule="FC" },
+    new Departement {Id=3,Intitule="IT" },
+};
+
+//var l1 = from x in employees where x.Salaire>5000 select x;
+var l1 = employees.Where(x => x.Salaire > 5000).Select(x => x);
+foreach (var x in l1)
+{
+    Console.WriteLine(x.Id);
+}
+Console.WriteLine("-----");
+
+//var l2 = from x in employees where x.Marie && x.Sex=='m' select x;
+var l2 = employees.Where(x => x.Marie && x.Sex == 'm').Select(x => x);
+foreach (var x in l2)
+{
+    Console.WriteLine(x.Id);
+}
+Console.WriteLine("-----");
+
+//var l3 = from x in employees  select new { x.Id, x.Nom};
+var l3 = employees.Select(x => new { x.Id, x.Nom });
+foreach (var x in l3)
+{
+    Console.WriteLine(x.Nom);
+}
+Console.WriteLine("-----");
+
+//var l5 = from x in employees orderby x.Nom select x;
+var l5 = employees.OrderBy(x => x.Nom).Select(x => x);
+foreach (var x in l5)
+{
+    Console.WriteLine(x.Nom);
+}
+Console.WriteLine("-----");
+
+//var l6 = from x in employees orderby x.Salaire descending, x.Sex select x;
+var l6 = employees.OrderByDescending(x => x.Salaire).ThenBy(x => x.Sex).Select(x => x);
+
+foreach (var x in l6)
+{
+    Console.WriteLine(x.Id + ":" + x.Nom + ":" + x.Salaire + ":" + x.Sex);
+}
+Console.WriteLine("-----");
+
+//var l7 = from x in employees group x by x.IdDepartement into g select g; // ou faire comme ca 
+//var l7 = from x in employees group x by x.IdDepartement into g select g select new {Departement = g.Key, Employe = g }
+var l7 = employees.GroupBy(x => x.IdDepartement).Select(g => g);
+foreach (var x in l7)
+{
+    //var dept = (from a in depts where a.Id == x.departement select a.intitule).ToArray()[0];
+    var dept = depts.Single(a => a.Id == x.Key);
+    Console.WriteLine("departement" + dept.Intitule);
+    foreach (var y in x)
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
     {
         Console.WriteLine((char)sr.Read());
     }
@@ -333,8 +438,36 @@ void Afficher(string[] result)
 
 
 
+<<<<<<< HEAD
 
 #endregion
+=======
+// la varieble l9 n'est pas excuter jusqua que on fait al=ppelle a elle sauf si on ajout .ToList
+var l9 = employees.Select(x => x.Sex).Distinct();
+<<<<<<< HEAD
+foreach (var x in l9)
+{
+=======
+foreach(var x in l9){
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
+    Console.WriteLine(x);
+}
+Console.WriteLine("---------");
+
+///en SQL les fonction vertical ou les agrégat 
+
+Console.WriteLine("salaire MIn :" + employees.Min(x => x.Salaire));
+Console.WriteLine("salaire Max :" + employees.Max(x => x.Salaire));
+Console.WriteLine("salaire Moyen :" + employees.Average(x => x.Salaire));
+Console.WriteLine("salaire sum :" + employees.Sum(x => x.Salaire));
+
+
+<<<<<<< HEAD
+#endregion
+=======
+
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
 
 
 #region garbage collector

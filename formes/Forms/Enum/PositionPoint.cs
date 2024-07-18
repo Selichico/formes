@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 using System;
+=======
+<<<<<<< HEAD
+﻿namespace formes.Forms.Enum
+=======
+﻿using System;
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +13,10 @@ using System.Threading.Tasks;
 using formes.Forms;
 
 namespace formes.Forms.Enum
+<<<<<<< HEAD
+=======
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
 {
     /// <summary>
     /// enum : on l'utilise quand on a des valeur prédefinit exemple  
@@ -17,6 +28,12 @@ namespace formes.Forms.Enum
         BasGauche,
         BasDroite
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+=======
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
 
     public struct Ligne
     {
@@ -29,4 +46,8 @@ namespace formes.Forms.Enum
     // } a revoire 
 // equals elle verifier les adress par default dans la comparaison des objet 
 //dans les structure par default elle verifier le contenue 
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 47906e13e71cd96bc374e799e5210919e0bf4948
+>>>>>>> 820fbaf728d065619cbe866b27e14c9990d0202e
